@@ -86,7 +86,7 @@
     
     <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-               clientAuth="false" sslProtocol="TLS" address="0.0.0.0" keystoreType="JKS" keyAlias="CYBERARK" keystoreFile="/opt/tomcat/keystore" keystorePass="Cyberark1" />
+               clientAuth="false" sslProtocol="TLS" address="0.0.0.0" keystoreType="JKS" keyAlias="CYBERARK" keystoreFile="/opt/tomcat/keystore" keystorePass="Change1t!" />
     
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
