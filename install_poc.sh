@@ -6,15 +6,17 @@ GUACPASS=changeit
 OFFLINE=Yes
 CATALINA_HOME=/opt/tomcat
 TOMCAT="dependencies/apache-tomcat-7.0.96.tar.gz"
-HTMLGWRPM="CARKpsmgw-10.10.0.2.el7.x86_64.rpm"
+HTMLGWRPM="bin/CARKpsmgw-10.10.0.2.el7.x86_64.rpm"
 URL=http://apache.crihan.fr/dist/tomcat/tomcat-7/v7.0.96/bin/$TOMCAT
 TEMPDIR=/tmp/HTMLGW
 LINUX_VERSION=$(cat /etc/centos-release | tr -dc '0-9.'|cut -d \. -f1)
 
 if [[ "$LINUX_VERSION" -le "6" ]]
 then
-        echo "ERROR : CentOS 7 or greater must be used"
+        echo "ERROR : CentOS 7 or greater must be used, exiting now"
+	exit 1
 fi
+
 
 echo -e "*************************************** Installation Wizard ***************************************\n"
 
@@ -25,6 +27,13 @@ echo
 mkdir $TEMPDIR
 chmod 744 $TEMPDIR
 cp -R * $TEMPDIR/
+
+if [ ! -f "$TEMPDIR/HTMLGWRPM" ]
+then
+	echo "ERROR : HTML5 Gateway binary not found, exiting now"
+	exit 1
+fi
+
 
 if ! hash firewall-cmd 2>/dev/null
 then
@@ -49,7 +58,7 @@ if  [ ! -f "$TEMPDIR/$TOMCAT" ]; then
 	echo -e "Downloading tomcat ...\n"
 	wget -P "$TEMPDIR/ $URL"
 fi
-tar -xvf $TEMPDIR/$TOMCAT -C /opt/
+tar -xf $TEMPDIR/$TOMCAT -C /opt/
 groupadd tomcat
 useradd -M -s /bin/nologin -g tomcat -d $CATALINA_HOME tomcat
 FOLD_TMP=$(echo "${TOMCAT%.tar.gz}")
