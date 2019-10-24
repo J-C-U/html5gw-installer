@@ -94,4 +94,7 @@ cp -v $TEMPDIR/guacd.conf /etc/guacamole/
 /etc/init.d/guacd restart
 service tomcat stop && service tomcat start
 
-echo -e "*************************************** Installation Completed ***************************************\n"
+echo -e "*************************************** Installation Completed ***************************************\n\n"
+echo -e "          DON'T FORGET TO TRUST SELF SIGNED CERT $CATALINA_HOME/cert.crt IN END USERS BROWSERS\n"
+echo -e "Go to https://$HTMLGW_FQDN and accept warning or install cert manually on local cert store\n\n"
+echo -e "******************************************************************************************************\n"
