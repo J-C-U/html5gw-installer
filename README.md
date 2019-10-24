@@ -1,8 +1,8 @@
-#HTML5 Gateway POC Installer
+# HTML5 Gateway POC Installer
 
 **WARNING : USE FOR PROOF OF CONCEPT ONLY. THIS INSTALLER USES SELF SIGNED CERTIFICATES AND NO HARDENING AND SHOULD NOT BE USED IN PRODUCTION ENVIRONMENT**
 
-###Usage : 
+### Usage : 
 1. Download HTML5 Gateway binary from Cyberark (inside Privilege Session Manager package)
 2. Copy the file in the bin folder
 3. Run install_poc.sh
